@@ -1,4 +1,15 @@
 # =============== #
+# Xcode           #
+# =============== #
+
+UserInterfaceState.xcuserstate
+build/
+*.pbxuser
+!default.pbxuser
+xcuserdata
+*.xccheckout
+
+# =============== #
 # Unity generated #
 # =============== #
 Temp/
