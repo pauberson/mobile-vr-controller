@@ -17,22 +17,8 @@
 		503C47DC19881F6B008BC373 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 503C47DA19881F6B008BC373 /* Main_iPad.storyboard */; };
 		503C47DF19881F6B008BC373 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 503C47DE19881F6B008BC373 /* ViewController.m */; };
 		503C47E119881F6B008BC373 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 503C47E019881F6B008BC373 /* Images.xcassets */; };
-		503C47E819881F6B008BC373 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 503C47E719881F6B008BC373 /* XCTest.framework */; };
-		503C47E919881F6B008BC373 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 503C47C519881F6B008BC373 /* Foundation.framework */; };
-		503C47EA19881F6B008BC373 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 503C47C919881F6B008BC373 /* UIKit.framework */; };
-		503C47F219881F6B008BC373 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 503C47F019881F6B008BC373 /* InfoPlist.strings */; };
-		503C47F419881F6B008BC373 /* mobile_vr_controllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 503C47F319881F6B008BC373 /* mobile_vr_controllerTests.m */; };
+		503C48021988414F008BC373 /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 503C48011988414F008BC373 /* GCDAsyncUdpSocket.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		503C47EB19881F6B008BC373 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 503C47BA19881F6B008BC373 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 503C47C119881F6B008BC373;
-			remoteInfo = "mobile-vr-controller";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		503C47C219881F6B008BC373 /* mobile-vr-controller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "mobile-vr-controller.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,11 +36,8 @@
 		503C47DD19881F6B008BC373 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		503C47DE19881F6B008BC373 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		503C47E019881F6B008BC373 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		503C47E619881F6B008BC373 /* mobile-vr-controllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "mobile-vr-controllerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		503C47E719881F6B008BC373 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		503C47EF19881F6B008BC373 /* mobile-vr-controllerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "mobile-vr-controllerTests-Info.plist"; sourceTree = "<group>"; };
-		503C47F119881F6B008BC373 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		503C47F319881F6B008BC373 /* mobile_vr_controllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mobile_vr_controllerTests.m; sourceTree = "<group>"; };
+		503C48001988414F008BC373 /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
+		503C48011988414F008BC373 /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,16 +51,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		503C47E319881F6B008BC373 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				503C47E819881F6B008BC373 /* XCTest.framework in Frameworks */,
-				503C47EA19881F6B008BC373 /* UIKit.framework in Frameworks */,
-				503C47E919881F6B008BC373 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -85,7 +58,6 @@
 			isa = PBXGroup;
 			children = (
 				503C47CB19881F6B008BC373 /* mobile-vr-controller */,
-				503C47ED19881F6B008BC373 /* mobile-vr-controllerTests */,
 				503C47C419881F6B008BC373 /* Frameworks */,
 				503C47C319881F6B008BC373 /* Products */,
 			);
@@ -95,7 +67,6 @@
 			isa = PBXGroup;
 			children = (
 				503C47C219881F6B008BC373 /* mobile-vr-controller.app */,
-				503C47E619881F6B008BC373 /* mobile-vr-controllerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -106,7 +77,6 @@
 				503C47C519881F6B008BC373 /* Foundation.framework */,
 				503C47C719881F6B008BC373 /* CoreGraphics.framework */,
 				503C47C919881F6B008BC373 /* UIKit.framework */,
-				503C47E719881F6B008BC373 /* XCTest.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -114,6 +84,8 @@
 		503C47CB19881F6B008BC373 /* mobile-vr-controller */ = {
 			isa = PBXGroup;
 			children = (
+				503C48001988414F008BC373 /* GCDAsyncUdpSocket.h */,
+				503C48011988414F008BC373 /* GCDAsyncUdpSocket.m */,
 				503C47D419881F6B008BC373 /* AppDelegate.h */,
 				503C47D519881F6B008BC373 /* AppDelegate.m */,
 				503C47D719881F6B008BC373 /* Main_iPhone.storyboard */,
@@ -133,24 +105,6 @@
 				503C47CE19881F6B008BC373 /* InfoPlist.strings */,
 				503C47D119881F6B008BC373 /* main.m */,
 				503C47D319881F6B008BC373 /* mobile-vr-controller-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		503C47ED19881F6B008BC373 /* mobile-vr-controllerTests */ = {
-			isa = PBXGroup;
-			children = (
-				503C47F319881F6B008BC373 /* mobile_vr_controllerTests.m */,
-				503C47EE19881F6B008BC373 /* Supporting Files */,
-			);
-			path = "mobile-vr-controllerTests";
-			sourceTree = "<group>";
-		};
-		503C47EE19881F6B008BC373 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				503C47EF19881F6B008BC373 /* mobile-vr-controllerTests-Info.plist */,
-				503C47F019881F6B008BC373 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -175,24 +129,6 @@
 			productReference = 503C47C219881F6B008BC373 /* mobile-vr-controller.app */;
 			productType = "com.apple.product-type.application";
 		};
-		503C47E519881F6B008BC373 /* mobile-vr-controllerTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 503C47FA19881F6B008BC373 /* Build configuration list for PBXNativeTarget "mobile-vr-controllerTests" */;
-			buildPhases = (
-				503C47E219881F6B008BC373 /* Sources */,
-				503C47E319881F6B008BC373 /* Frameworks */,
-				503C47E419881F6B008BC373 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				503C47EC19881F6B008BC373 /* PBXTargetDependency */,
-			);
-			name = "mobile-vr-controllerTests";
-			productName = "mobile-vr-controllerTests";
-			productReference = 503C47E619881F6B008BC373 /* mobile-vr-controllerTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -200,9 +136,10 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Lumacode Ltd.";
 				TargetAttributes = {
-					503C47E519881F6B008BC373 = {
-						TestTargetID = 503C47C119881F6B008BC373;
+					503C47C119881F6B008BC373 = {
+						DevelopmentTeam = 5E3UEXL3AT;
 					};
 				};
 			};
@@ -220,7 +157,6 @@
 			projectRoot = "";
 			targets = (
 				503C47C119881F6B008BC373 /* mobile-vr-controller */,
-				503C47E519881F6B008BC373 /* mobile-vr-controllerTests */,
 			);
 		};
 /* End PBXProject section */
@@ -237,14 +173,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		503C47E419881F6B008BC373 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				503C47F219881F6B008BC373 /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -252,29 +180,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				503C48021988414F008BC373 /* GCDAsyncUdpSocket.m in Sources */,
 				503C47DF19881F6B008BC373 /* ViewController.m in Sources */,
 				503C47D619881F6B008BC373 /* AppDelegate.m in Sources */,
 				503C47D219881F6B008BC373 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		503C47E219881F6B008BC373 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				503C47F419881F6B008BC373 /* mobile_vr_controllerTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		503C47EC19881F6B008BC373 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 503C47C119881F6B008BC373 /* mobile-vr-controller */;
-			targetProxy = 503C47EB19881F6B008BC373 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		503C47CE19881F6B008BC373 /* InfoPlist.strings */ = {
@@ -299,14 +212,6 @@
 				503C47DB19881F6B008BC373 /* Base */,
 			);
 			name = Main_iPad.storyboard;
-			sourceTree = "<group>";
-		};
-		503C47F019881F6B008BC373 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				503C47F119881F6B008BC373 /* en */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -389,10 +294,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "mobile-vr-controller/mobile-vr-controller-Prefix.pch";
 				INFOPLIST_FILE = "mobile-vr-controller/mobile-vr-controller-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -402,51 +310,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "mobile-vr-controller/mobile-vr-controller-Prefix.pch";
 				INFOPLIST_FILE = "mobile-vr-controller/mobile-vr-controller-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
-		503C47FB19881F6B008BC373 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/mobile-vr-controller.app/mobile-vr-controller";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "mobile-vr-controller/mobile-vr-controller-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "mobile-vr-controllerTests/mobile-vr-controllerTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		503C47FC19881F6B008BC373 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/mobile-vr-controller.app/mobile-vr-controller";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "mobile-vr-controller/mobile-vr-controller-Prefix.pch";
-				INFOPLIST_FILE = "mobile-vr-controllerTests/mobile-vr-controllerTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
 		};
@@ -469,14 +340,7 @@
 				503C47F919881F6B008BC373 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-		};
-		503C47FA19881F6B008BC373 /* Build configuration list for PBXNativeTarget "mobile-vr-controllerTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				503C47FB19881F6B008BC373 /* Debug */,
-				503C47FC19881F6B008BC373 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
