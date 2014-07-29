@@ -16,10 +16,15 @@ public class MobileListener : MonoBehaviour {
 
 	private int _touchX = 0;
 	private int _touchY = 0;
+	private bool _isTouching = false;
 
-	public Vector2 TouchPosition 
+	public Vector3 TouchPosition 
 	{
-		get { return new Vector2(_touchX, _touchY); }
+		get { return new Vector3(_touchX, _touchY, 0); }
+	}
+
+	public bool IsTouching {
+		get { return _isTouching;}
 	}
 
 	void Awake()
@@ -42,7 +47,7 @@ public class MobileListener : MonoBehaviour {
 
 	void Update()
 	{
-	
+
 	}
 
 	void InitializeListener()
@@ -62,11 +67,14 @@ public class MobileListener : MonoBehaviour {
 		var msg = receivedMessage.Split(',');
 		
 		if (msg[0] == "touch") {
+			_isTouching = true;
 			int.TryParse(msg[1], out _touchX);
 			int.TryParse(msg[2], out _touchY);
-		
+
+		} else if (msg[0] == "touchend") {
+			_isTouching = false;
 		} 
-		
+
 		_listener.BeginReceive(new AsyncCallback(DataReceived), null);
 	}
 }
