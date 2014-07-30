@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		500B8C7E1989753400BB89EF /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 500B8C7D1989753400BB89EF /* Settings.bundle */; };
+		500B8C811989827000BB89EF /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 500B8C801989827000BB89EF /* SettingsViewController.m */; };
 		503C47C619881F6B008BC373 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 503C47C519881F6B008BC373 /* Foundation.framework */; };
 		503C47C819881F6B008BC373 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 503C47C719881F6B008BC373 /* CoreGraphics.framework */; };
 		503C47CA19881F6B008BC373 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 503C47C919881F6B008BC373 /* UIKit.framework */; };
@@ -21,6 +23,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		500B8C7D1989753400BB89EF /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = "mobile-vr-controller/Settings.bundle"; sourceTree = "<group>"; };
+		500B8C7F1989827000BB89EF /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		500B8C801989827000BB89EF /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		503C47C219881F6B008BC373 /* mobile-vr-controller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "mobile-vr-controller.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		503C47C519881F6B008BC373 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		503C47C719881F6B008BC373 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -57,6 +62,7 @@
 		503C47B919881F6B008BC373 = {
 			isa = PBXGroup;
 			children = (
+				500B8C7D1989753400BB89EF /* Settings.bundle */,
 				503C47CB19881F6B008BC373 /* mobile-vr-controller */,
 				503C47C419881F6B008BC373 /* Frameworks */,
 				503C47C319881F6B008BC373 /* Products */,
@@ -89,6 +95,8 @@
 				503C47D419881F6B008BC373 /* AppDelegate.h */,
 				503C47D519881F6B008BC373 /* AppDelegate.m */,
 				503C47D719881F6B008BC373 /* Main_iPhone.storyboard */,
+				500B8C7F1989827000BB89EF /* SettingsViewController.h */,
+				500B8C801989827000BB89EF /* SettingsViewController.m */,
 				503C47DA19881F6B008BC373 /* Main_iPad.storyboard */,
 				503C47DD19881F6B008BC373 /* ViewController.h */,
 				503C47DE19881F6B008BC373 /* ViewController.m */,
@@ -168,6 +176,7 @@
 			files = (
 				503C47DC19881F6B008BC373 /* Main_iPad.storyboard in Resources */,
 				503C47E119881F6B008BC373 /* Images.xcassets in Resources */,
+				500B8C7E1989753400BB89EF /* Settings.bundle in Resources */,
 				503C47D919881F6B008BC373 /* Main_iPhone.storyboard in Resources */,
 				503C47D019881F6B008BC373 /* InfoPlist.strings in Resources */,
 			);
@@ -182,6 +191,7 @@
 			files = (
 				503C48021988414F008BC373 /* GCDAsyncUdpSocket.m in Sources */,
 				503C47DF19881F6B008BC373 /* ViewController.m in Sources */,
+				500B8C811989827000BB89EF /* SettingsViewController.m in Sources */,
 				503C47D619881F6B008BC373 /* AppDelegate.m in Sources */,
 				503C47D219881F6B008BC373 /* main.m in Sources */,
 			);

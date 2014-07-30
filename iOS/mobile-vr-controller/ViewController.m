@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "GCDAsyncUdpSocket.h"
+#import "SettingsViewController.h"
 
 @interface ViewController ()
 {
@@ -15,7 +16,12 @@
     GCDAsyncUdpSocket *udpSocket;
     int halfViewWidth;
     int halfViewHeight;
+    
 }
+
+@property (weak) NSString *udpHost;
+@property int udpPort;
+
 @end
 
 @implementation ViewController
@@ -26,13 +32,26 @@
 
     udpSocket = [[GCDAsyncUdpSocket alloc] initWithDelegate:self delegateQueue:dispatch_get_main_queue()];
     
-    self.udpHost = @"192.168.0.9";
-
-    self.udpPort = 11000;
+    [self loadSettings];
+    
+    // listen for changes made in setting app
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(settingsDidChange:)
+                                                 name:NSUserDefaultsDidChangeNotification
+                                               object:nil];
     
     halfViewWidth = self.view.bounds.size.width/2;
     halfViewHeight = self.view.bounds.size.height/2;
 
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    // if no settings, show dialog to enter IP address / port
+    if ([self.udpHost isEqual: @""]){
+        [self showSettings];
+    }
+    [super viewDidLoad];
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
@@ -76,6 +95,23 @@
     tag++;
 }
 
+- (void)saveIPAddress: (NSString *)ipAddress andPort: (int) port {
+
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setObject:ipAddress forKey:@"ip_address"];
+    [userDefaults setInteger:port forKey:@"udp_port"];
+    [userDefaults synchronize];
+
+}
+
+- (void)loadSettings {
+    self.udpHost = [[NSUserDefaults standardUserDefaults] stringForKey:@"ip_address"];
+    self.udpPort = [[NSUserDefaults standardUserDefaults] integerForKey:@"udp_port"];
+}
+
+- (void)settingsDidChange:(NSNotification *)notification {
+    [self loadSettings];
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -83,4 +119,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)showSettings{
+    SettingsViewController *settingsController = [self.storyboard instantiateViewControllerWithIdentifier:@"Settings"];
+    
+    settingsController.delegate = self;
+    
+    [self presentViewController:settingsController animated:YES completion: nil];
+    
+}
 @end

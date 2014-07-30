@@ -7,10 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SettingsViewController.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <SaveSettingsDelegate> 
 
-@property (weak) NSString *udpHost;
-@property int udpPort;
 
 @end
