@@ -31,7 +31,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    int currentUdpPort = [[NSUserDefaults standardUserDefaults] integerForKey:@"udp_port"];
+    self.udpPort.text = [NSString stringWithFormat:@"%i",(currentUdpPort == 0) ? 11000 : currentUdpPort ];
+  
 }
 
 - (void)didReceiveMemoryWarning

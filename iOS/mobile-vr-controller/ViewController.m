@@ -48,7 +48,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     // if no settings, show dialog to enter IP address / port
-    if ([self.udpHost isEqual: @""]){
+    if (!self.udpHost || [self.udpHost isEqual: @""] ){
         [self showSettings];
     }
     [super viewDidLoad];
