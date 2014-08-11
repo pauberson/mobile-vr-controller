@@ -9,6 +9,9 @@ public class MobileListener : MonoBehaviour {
 
 	public static MobileListener Instance { get; private set; }
 
+	public delegate void TouchAction(Vector3 touchPoint);
+	public static event TouchAction OnTap;
+
 	private const int ListenPort = 11000;
 	
 	private UdpClient _listener;
@@ -16,7 +19,10 @@ public class MobileListener : MonoBehaviour {
 
 	private int _touchX = 0;
 	private int _touchY = 0;
+	private int _tapX = 0;
+	private int _tapY = 0;
 	private bool _isTouching = false;
+	private bool _pendingTap = false;
 
 	public Vector3 TouchPosition 
 	{
@@ -47,7 +53,12 @@ public class MobileListener : MonoBehaviour {
 
 	void Update()
 	{
-
+		if (_pendingTap){
+			_pendingTap = false;
+			if (OnTap != null){
+				OnTap(new Vector3(_tapX, _tapY,0));
+			}
+		}
 	}
 
 	void InitializeListener()
@@ -73,6 +84,11 @@ public class MobileListener : MonoBehaviour {
 
 		} else if (msg[0] == "touchend") {
 			_isTouching = false;
+		} else if (msg[0] == "tap") {
+			_isTouching = false;
+			int.TryParse(msg[1], out _tapX);
+			int.TryParse(msg[2], out _tapY);
+			_pendingTap = true;
 		} 
 
 		_listener.BeginReceive(new AsyncCallback(DataReceived), null);
