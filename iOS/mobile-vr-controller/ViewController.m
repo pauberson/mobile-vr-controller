@@ -16,11 +16,14 @@
     GCDAsyncUdpSocket *udpSocket;
     int halfViewWidth;
     int halfViewHeight;
-    
+    bool isTouching;
+    int touchPosX;
+    int touchPosY;
 }
 
 @property (weak) NSString *udpHost;
 @property int udpPort;
+@property (weak) NSTimer *repeatingTimer;
 
 @end
 
@@ -42,6 +45,12 @@
     
     halfViewWidth = self.view.bounds.size.width/2;
     halfViewHeight = self.view.bounds.size.height/2;
+    isTouching = false;
+    
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:0.01
+                                                      target:self selector:@selector(update:)
+                                                    userInfo:nil repeats:YES];
+    self.repeatingTimer = timer;
 
 }
 
@@ -53,6 +62,16 @@
     }
     [super viewDidLoad];
 }
+
+- (void)update:(NSTimer*)theTimer
+{
+    if (isTouching){
+        NSString *msg = [NSString stringWithFormat:@"touch,%d,%d", touchPosX, touchPosY];
+        [self sendMessage:msg];
+    }
+
+}
+
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     [self handleTouches:touches withEvent:event];
@@ -72,27 +91,22 @@
 }
 
 -(void)handleTouches:(NSSet *)touches withEvent:(UIEvent *)event{
+    isTouching = true;
     UITouch *touch = [[touches allObjects] objectAtIndex:0];
-    
     CGPoint touchPoint = [touch locationInView:self.view];
     
-    int posX = (int)round(touchPoint.x - halfViewWidth);
-    int posY = (int)round(halfViewHeight - touchPoint.y);
-    
-    NSString *msg = [NSString stringWithFormat:@"touch,%d,%d",posX, posY];
-    NSData *data = [msg dataUsingEncoding:NSUTF8StringEncoding];
-    [udpSocket sendData:data toHost:self.udpHost port:self.udpPort withTimeout:-1 tag:tag];
-    
-    tag++;
-    
+    touchPosX = (int)round(touchPoint.x - halfViewWidth);
+    touchPosY = (int)round(halfViewHeight - touchPoint.y);
 }
 
 - (void)sendTouchesEnded{
-    
-    NSData *data = [@"touchend" dataUsingEncoding:NSUTF8StringEncoding];
-    [udpSocket sendData:data toHost:self.udpHost port:self.udpPort withTimeout:-1 tag:tag];
-    
-    tag++;
+    isTouching = false;
+    [self sendMessage:@"touchend"];
+}
+
+- (void)sendMessage:(NSString *)msg{
+    NSData *data = [msg dataUsingEncoding:NSUTF8StringEncoding];
+    [udpSocket sendData:data toHost:self.udpHost port:self.udpPort withTimeout:-1 tag:tag++];
 }
 
 - (void)saveIPAddress: (NSString *)ipAddress andPort: (int) port {
