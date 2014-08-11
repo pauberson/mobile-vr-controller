@@ -10,6 +10,13 @@
 #import "GCDAsyncUdpSocket.h"
 #import "SettingsViewController.h"
 
+struct TouchPoint {
+    int x;
+    int y;
+};
+
+typedef struct TouchPoint TouchPoint;
+
 @interface ViewController ()
 {
     long tag;
@@ -19,11 +26,12 @@
     bool isTouching;
     int touchPosX;
     int touchPosY;
+    TouchPoint touchPoint;
 }
 
 @property (weak) NSString *udpHost;
 @property int udpPort;
-@property (weak) NSTimer *repeatingTimer;
+@property UITapGestureRecognizer *tapGestureRecognizer;
 
 @end
 
@@ -47,11 +55,10 @@
     halfViewHeight = self.view.bounds.size.height/2;
     isTouching = false;
     
-    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:0.01
-                                                      target:self selector:@selector(update:)
-                                                    userInfo:nil repeats:YES];
-    self.repeatingTimer = timer;
-
+    [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(update:) userInfo:nil repeats:YES];
+    
+    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
+    [self.view addGestureRecognizer:tapGestureRecognizer];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -66,7 +73,7 @@
 - (void)update:(NSTimer*)theTimer
 {
     if (isTouching){
-        NSString *msg = [NSString stringWithFormat:@"touch,%d,%d", touchPosX, touchPosY];
+        NSString *msg = [NSString stringWithFormat:@"touch,%d,%d", touchPoint.x, touchPoint.y];
         [self sendMessage:msg];
     }
 
@@ -93,15 +100,28 @@
 -(void)handleTouches:(NSSet *)touches withEvent:(UIEvent *)event{
     isTouching = true;
     UITouch *touch = [[touches allObjects] objectAtIndex:0];
-    CGPoint touchPoint = [touch locationInView:self.view];
-    
-    touchPosX = (int)round(touchPoint.x - halfViewWidth);
-    touchPosY = (int)round(halfViewHeight - touchPoint.y);
+    touchPoint = [self CGPointToTouchPoint:[touch locationInView:self.view]];
+}
+
+- (TouchPoint)CGPointToTouchPoint:(CGPoint)pnt{
+    TouchPoint t;
+    t.x = (int)round(pnt.x - halfViewWidth);
+    t.y = (int)round(halfViewHeight - pnt.y);
+    return t;
 }
 
 - (void)sendTouchesEnded{
     isTouching = false;
     [self sendMessage:@"touchend"];
+}
+
+- (void)handleTap:(UITapGestureRecognizer *)sender
+{
+    if (sender.state == UIGestureRecognizerStateEnded){
+        TouchPoint tapPoint = [self CGPointToTouchPoint:[sender locationInView:self.view]];
+        NSString *msg = [NSString stringWithFormat:@"tap,%d,%d", tapPoint.x, tapPoint.y];
+        [self sendMessage:msg];
+    }
 }
 
 - (void)sendMessage:(NSString *)msg{
