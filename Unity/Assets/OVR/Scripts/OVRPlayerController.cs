@@ -387,14 +387,14 @@ public class OVRPlayerController : MonoBehaviour
 			Vector3 touchPos = MobileListener.Instance.TouchPosition;
 			
 			// Run!
-			moveInfluence *= 1.0f + touchPos.magnitude/200;
+			moveInfluence *= 1.0f + touchPos.magnitude * VRController.Instance.MoveSpeedScaleFactor;
 			
 			// Move
 			if(DirXform != null)
 			{
-				float leftAxisY = touchPos.y/200;
+				float leftAxisY = touchPos.y * VRController.Instance.AxisScaleFactor;
 				
-				float leftAxisX = 0; //touchPos.x/100;
+				float leftAxisX = touchPos.x * VRController.Instance.AxisScaleFactor;
 				
 				if(leftAxisY > 0.0f)
 					MoveThrottle += leftAxisY *
@@ -412,12 +412,14 @@ public class OVRPlayerController : MonoBehaviour
 					MoveThrottle += leftAxisX *
 						DirXform.TransformDirection(Vector3.right * moveInfluence) * BackAndSideDampen;
 			}
-			
-			float touchRightAxisX = touchPos.x/200;
-			
+		
 			// Rotate
-			YRotation += touchRightAxisX * rotateInfluence;    
+			YRotation += MobileListener.Instance.RollSinceTouchStart * rotateInfluence;  	
+			
 		}
+			
+  
+		
 		// * * * * * * * * * * *
 		
 		// Update cameras direction and rotation

@@ -3,11 +3,28 @@ using System.Collections;
 
 public class VRController : MonoBehaviour {
 
-	public GameObject touchDebugObject;
-	public GameObject tapDebugObject;
+	public static VRController Instance { get; private set; }
+	
+	public GameObject TouchDebugObject;
+	public GameObject TapDebugObject;
 
-	private float _scaleFactor = 0.0025f;
-
+	public float DebugScaleFactor = 0.0025f;
+	public float AxisScaleFactor = 0.005f;
+	public float MoveSpeedScaleFactor = 0.005f;
+	
+	void Awake()
+	{
+		if (Instance != null && Instance != this){
+			Destroy(gameObject);
+		}
+		
+		Instance = this;
+		
+		// keep between scenes
+		DontDestroyOnLoad(gameObject);
+		
+	}
+	
 	void Start () {
 		MobileListener.OnTap += HandleOnTap;
 		HideTap();
@@ -15,27 +32,27 @@ public class VRController : MonoBehaviour {
 
 	void HandleOnTap (Vector3 touchPoint)
 	{
-		if (tapDebugObject != null){
-			tapDebugObject.SetActive(true);
-			tapDebugObject.transform.localPosition = touchPoint*_scaleFactor;
+		if (TapDebugObject != null){
+			TapDebugObject.SetActive(true);
+			TapDebugObject.transform.localPosition = touchPoint*DebugScaleFactor;
 			Invoke("HideTap",0.5f);
 		}
 	}
 
 	void HideTap(){
-		if (tapDebugObject != null){
-			tapDebugObject.SetActive(false);
+		if (TapDebugObject != null){
+			TapDebugObject.SetActive(false);
 		}
 	}
 
 	void Update () {
 
-		if (touchDebugObject != null){
+		if (TouchDebugObject != null){
 			if (MobileListener.Instance.IsTouching) {
-				touchDebugObject.SetActive(true);
-				touchDebugObject.transform.localPosition = MobileListener.Instance.TouchPosition*_scaleFactor;
+				TouchDebugObject.SetActive(true);
+				TouchDebugObject.transform.localPosition = MobileListener.Instance.TouchPosition*DebugScaleFactor;
 			} else {
-				touchDebugObject.SetActive(false);
+				TouchDebugObject.SetActive(false);
 			}
 		}
 

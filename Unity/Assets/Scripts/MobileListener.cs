@@ -24,6 +24,11 @@ public class MobileListener : MonoBehaviour {
 	private bool _isTouching = false;
 	private bool _pendingTap = false;
 
+	private float _pitch = 0;
+	private float _roll = 0;
+	private float _yaw = 0;
+	private float _rollAtTouchStart = 0;
+	
 	public Vector3 TouchPosition 
 	{
 		get { return new Vector3(_touchX, _touchY, 0); }
@@ -32,7 +37,17 @@ public class MobileListener : MonoBehaviour {
 	public bool IsTouching {
 		get { return _isTouching;}
 	}
+	
+	public float AbsoluteRoll
+	{
+		get { return _roll;}
+	}
 
+	public float RollSinceTouchStart
+	{
+		get { return _roll-_rollAtTouchStart;}
+	}
+	
 	void Awake()
 	{
 		if (Instance != null && Instance != this){
@@ -76,20 +91,31 @@ public class MobileListener : MonoBehaviour {
 		var receivedMessage = Encoding.ASCII.GetString(receiveByteArray, 0, receiveByteArray.Length);
 		
 		var msg = receivedMessage.Split(',');
-		Debug.Log(msg[0]);
+
 		if (msg[0] == "touch") {
+			if (!_isTouching){
+				_rollAtTouchStart = _roll;
+			}
+			
 			_isTouching = true;
 			int.TryParse(msg[1], out _touchX);
 			int.TryParse(msg[2], out _touchY);
-
+			
 		} else if (msg[0] == "touchend") {
 			_isTouching = false;
+		
+			
 		} else if (msg[0] == "tap") {
 			_isTouching = false;
 			int.TryParse(msg[1], out _tapX);
 			int.TryParse(msg[2], out _tapY);
 			_pendingTap = true;
-		} 
+			
+		} else if (msg[0] == "gyro") {
+			float.TryParse(msg[1], out _pitch);
+			float.TryParse(msg[2], out _roll);
+			float.TryParse(msg[3], out _yaw);
+		}
 
 		_listener.BeginReceive(new AsyncCallback(DataReceived), null);
 	}
