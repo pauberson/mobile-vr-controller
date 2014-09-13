@@ -76,7 +76,7 @@ public class MobileListener : MonoBehaviour {
 		var receivedMessage = Encoding.ASCII.GetString(receiveByteArray, 0, receiveByteArray.Length);
 		
 		var msg = receivedMessage.Split(',');
-		
+		Debug.Log(msg[0]);
 		if (msg[0] == "touch") {
 			_isTouching = true;
 			int.TryParse(msg[1], out _touchX);

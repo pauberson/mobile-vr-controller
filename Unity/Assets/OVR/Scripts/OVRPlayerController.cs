@@ -377,6 +377,49 @@ public class OVRPlayerController : MonoBehaviour
 		// Rotate
 		YRotation += rightAxisX * rotateInfluence;    
 		
+		// * * * * * * * * * * *
+		// Mobile controller input	
+		
+		if (MobileListener.Instance.IsTouching){
+			// Compute this for xinput movement
+			moveInfluence = OVRDevice.SimulationRate * Time.deltaTime * Acceleration * 0.1f * MoveScale * MoveScaleMultiplier;
+			
+			Vector3 touchPos = MobileListener.Instance.TouchPosition;
+			
+			// Run!
+			moveInfluence *= 1.0f + touchPos.magnitude/200;
+			
+			// Move
+			if(DirXform != null)
+			{
+				float leftAxisY = touchPos.y/200;
+				
+				float leftAxisX = 0; //touchPos.x/100;
+				
+				if(leftAxisY > 0.0f)
+					MoveThrottle += leftAxisY *
+						DirXform.TransformDirection(Vector3.forward * moveInfluence);
+				
+				if(leftAxisY < 0.0f)
+					MoveThrottle += Mathf.Abs(leftAxisY) *		
+						DirXform.TransformDirection(Vector3.back * moveInfluence) * BackAndSideDampen;
+				
+				if(leftAxisX < 0.0f)
+					MoveThrottle += Mathf.Abs(leftAxisX) *
+						DirXform.TransformDirection(Vector3.left * moveInfluence) * BackAndSideDampen;
+				
+				if(leftAxisX > 0.0f)
+					MoveThrottle += leftAxisX *
+						DirXform.TransformDirection(Vector3.right * moveInfluence) * BackAndSideDampen;
+			}
+			
+			float touchRightAxisX = touchPos.x/200;
+			
+			// Rotate
+			YRotation += touchRightAxisX * rotateInfluence;    
+		}
+		// * * * * * * * * * * *
+		
 		// Update cameras direction and rotation
 		SetCameras();
 	}
