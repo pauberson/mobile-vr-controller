@@ -32,6 +32,7 @@ typedef struct TouchPoint TouchPoint;
 @property (weak) NSString *udpHost;
 @property int udpPort;
 @property UITapGestureRecognizer *tapGestureRecognizer;
+@property (weak) CMMotionManager *motionManager;
 
 @end
 
@@ -59,6 +60,9 @@ typedef struct TouchPoint TouchPoint;
     
     UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
     [self.view addGestureRecognizer:tapGestureRecognizer];
+    
+    id appDelegate = [UIApplication sharedApplication].delegate;
+    self.motionManager = [appDelegate motionManager];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -73,10 +77,15 @@ typedef struct TouchPoint TouchPoint;
 - (void)update:(NSTimer*)theTimer
 {
     if (isTouching){
-        NSString *msg = [NSString stringWithFormat:@"touch,%d,%d", touchPoint.x, touchPoint.y];
-        [self sendMessage:msg];
+        NSString *touchMsg = [NSString stringWithFormat:@"touch,%d,%d", touchPoint.x, touchPoint.y];
+        [self sendMessage:touchMsg];
     }
+    
+    CMDeviceMotion *d = self.motionManager.deviceMotion;
+    NSString *gyroMsg = [NSString stringWithFormat:@"gyro,%0.1f,%0.1f,%0.1f", d.attitude.pitch, d.attitude.roll, d.attitude.yaw];
 
+    [self sendMessage:gyroMsg];
+    
 }
 
 

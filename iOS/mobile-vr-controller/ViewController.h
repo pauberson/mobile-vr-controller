@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "SettingsViewController.h"
+#import <CoreMotion/CoreMotion.h>
 
 @interface ViewController : UIViewController <SaveSettingsDelegate> 
 
