@@ -384,7 +384,7 @@ public class OVRPlayerController : MonoBehaviour
 			// Compute this for xinput movement
 			moveInfluence = OVRDevice.SimulationRate * Time.deltaTime * Acceleration * 0.1f * MoveScale * MoveScaleMultiplier;
 			
-			Vector3 touchPos = MobileListener.Instance.TouchPosition;
+			Vector3 touchPos = MobileListener.Instance.TouchPositionSinceTouchStart;
 			
 			// Run!
 			moveInfluence *= 1.0f + touchPos.magnitude * VRController.Instance.MoveSpeedScaleFactor;

@@ -50,7 +50,7 @@ public class VRController : MonoBehaviour {
 		if (TouchDebugObject != null){
 			if (MobileListener.Instance.IsTouching) {
 				TouchDebugObject.SetActive(true);
-				TouchDebugObject.transform.localPosition = MobileListener.Instance.TouchPosition*DebugScaleFactor;
+				TouchDebugObject.transform.localPosition = MobileListener.Instance.AbsoluteTouchPosition*DebugScaleFactor;
 			} else {
 				TouchDebugObject.SetActive(false);
 			}
