@@ -20,6 +20,7 @@
 		503C47DF19881F6B008BC373 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 503C47DE19881F6B008BC373 /* ViewController.m */; };
 		503C47E119881F6B008BC373 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 503C47E019881F6B008BC373 /* Images.xcassets */; };
 		503C48021988414F008BC373 /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 503C48011988414F008BC373 /* GCDAsyncUdpSocket.m */; };
+		5052028219CB594300D07E14 /* ui.png in Resources */ = {isa = PBXBuildFile; fileRef = 5052028119CB594300D07E14 /* ui.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		503C47E019881F6B008BC373 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		503C48001988414F008BC373 /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
 		503C48011988414F008BC373 /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
+		5052028119CB594300D07E14 /* ui.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ui.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 				503C47D419881F6B008BC373 /* AppDelegate.h */,
 				503C47D519881F6B008BC373 /* AppDelegate.m */,
 				503C47D719881F6B008BC373 /* Main_iPhone.storyboard */,
+				5052028119CB594300D07E14 /* ui.png */,
 				500B8C7F1989827000BB89EF /* SettingsViewController.h */,
 				500B8C801989827000BB89EF /* SettingsViewController.m */,
 				503C47DA19881F6B008BC373 /* Main_iPad.storyboard */,
@@ -175,6 +178,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				503C47DC19881F6B008BC373 /* Main_iPad.storyboard in Resources */,
+				5052028219CB594300D07E14 /* ui.png in Resources */,
 				503C47E119881F6B008BC373 /* Images.xcassets in Resources */,
 				500B8C7E1989753400BB89EF /* Settings.bundle in Resources */,
 				503C47D919881F6B008BC373 /* Main_iPhone.storyboard in Resources */,
