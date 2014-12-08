@@ -10,6 +10,8 @@
 #import "GCDAsyncUdpSocket.h"
 #import "SettingsViewController.h"
 
+@import SceneKit;
+
 struct TouchPoint {
     int x;
     int y;
@@ -27,8 +29,11 @@ typedef struct TouchPoint TouchPoint;
     int touchPosX;
     int touchPosY;
     TouchPoint touchPoint;
+    bool hasStarted;
 }
 
+
+@property SCNView *theView;
 @property (weak) NSString *udpHost;
 @property int udpPort;
 @property UITapGestureRecognizer *tapGestureRecognizer;
@@ -55,9 +60,8 @@ typedef struct TouchPoint TouchPoint;
     halfViewWidth = self.view.bounds.size.width/2;
     halfViewHeight = self.view.bounds.size.height/2;
     isTouching = false;
-    
-    [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(update:) userInfo:nil repeats:YES];
-    
+    hasStarted = false;
+
     UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
     [self.view addGestureRecognizer:tapGestureRecognizer];
     
@@ -74,6 +78,41 @@ typedef struct TouchPoint TouchPoint;
     [super viewDidLoad];
 }
 
+- (IBAction)startPressed:(id)sender {
+    [self start];
+}
+
+- (void)start{
+    self.theView = [[SCNView alloc] initWithFrame:self.view.frame options:nil];
+    self.theView.scene = [SCNScene sceneNamed:@"scene"];
+    self.theView.antialiasingMode = SCNAntialiasingModeMultisampling2X;
+    self.theView.backgroundColor = [UIColor blackColor];
+    self.theView.allowsCameraControl = YES;
+    SCNNode *planeNode = [self.theView.scene.rootNode childNodeWithName:@"Plane" recursively:NO];
+    SCNGeometry *planeGeometry = planeNode.geometry;
+    SCNMaterial *planeMaterial = planeGeometry.firstMaterial;
+    self.theView.preferredFramesPerSecond = 60;
+    self.theView.showsStatistics = YES;
+    [self.theView play:nil];
+    
+    NSError *error = nil;
+    NSString *shaderSource = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"plane" ofType:@"shader"] encoding:NSUTF8StringEncoding error:&error];
+    NSDictionary *shaderModifiers = [NSDictionary dictionaryWithObject:shaderSource forKey:SCNShaderModifierEntryPointGeometry];
+    //planeMaterial.shaderModifiers = shaderModifiers;
+    planeGeometry.shaderModifiers = shaderModifiers;
+    [self.view addSubview:self.theView];
+    
+    [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(update:) userInfo:nil repeats:YES];
+    hasStarted = true;
+    
+    SCNNode *lightNode1 = [self.theView.scene.rootNode childNodeWithName:@"Omni012" recursively:NO];
+    lightNode1.light.shadowMode = SCNShadowModeDeferred;
+    
+    SCNNode *lightNode2 = [self.theView.scene.rootNode childNodeWithName:@"Omni013" recursively:NO];
+    lightNode2.light.shadowMode = SCNShadowModeDeferred;
+    
+}
+
 - (void)update:(NSTimer*)theTimer
 {
     if (isTouching){
@@ -85,9 +124,14 @@ typedef struct TouchPoint TouchPoint;
     NSString *gyroMsg = [NSString stringWithFormat:@"gyro,%0.1f,%0.1f,%0.1f", d.attitude.pitch, d.attitude.roll, d.attitude.yaw];
 
     [self sendMessage:gyroMsg];
-    
-}
+    /*
+    SCNNode *lightNode1 = [self.theView.scene.rootNode childNodeWithName:@"Omni012" recursively:NO];
+    lightNode1.position = SCNVector3Make(lightNode1.position.x, lightNode1.position.y, lightNode1.position.z-0.01);
 
+    SCNNode *lightNode2 = [self.theView.scene.rootNode childNodeWithName:@"Omni013" recursively:NO];
+    lightNode2.position = SCNVector3Make(lightNode2.position.x, lightNode2.position.y, lightNode2.position.z+0.01);
+    */
+}
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     [self handleTouches:touches withEvent:event];
@@ -134,6 +178,8 @@ typedef struct TouchPoint TouchPoint;
 }
 
 - (void)sendMessage:(NSString *)msg{
+    if (!hasStarted) return;
+    
     NSData *data = [msg dataUsingEncoding:NSUTF8StringEncoding];
     [udpSocket sendData:data toHost:self.udpHost port:self.udpPort withTimeout:-1 tag:tag++];
 }
@@ -170,4 +216,5 @@ typedef struct TouchPoint TouchPoint;
     [self presentViewController:settingsController animated:YES completion: nil];
     
 }
+
 @end
