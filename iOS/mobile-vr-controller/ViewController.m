@@ -82,7 +82,7 @@ typedef struct TouchPoint TouchPoint;
     }
     
     CMDeviceMotion *d = self.motionManager.deviceMotion;
-    NSString *gyroMsg = [NSString stringWithFormat:@"gyro,%0.1f,%0.1f,%0.1f", d.attitude.pitch, d.attitude.roll, d.attitude.yaw];
+    NSString *gyroMsg = [NSString stringWithFormat:@"gyro,%0.4f,%0.4f,%0.4f", d.attitude.pitch, d.attitude.roll, d.attitude.yaw];
 
     [self sendMessage:gyroMsg];
     
