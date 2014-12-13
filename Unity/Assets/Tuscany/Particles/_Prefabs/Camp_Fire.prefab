@@ -90,6 +90,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400022}
   - 108: {fileID: 10800002}
+  - 114: {fileID: 11400000}
   - 114: {fileID: 11400002}
   m_Layer: 0
   m_Name: Light_Source
@@ -150,10 +151,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .800000012, y: .800000012, z: .800000012}
+  m_LocalPosition: {x: 0, y: -.125018388, z: 0}
+  m_LocalScale: {x: .400000006, y: .400000006, z: .400000006}
   m_Children: []
   m_Father: {fileID: 400002}
+  m_RootOrder: 5
 --- !u!1002 &400001
 EditorExtensionImpl:
   serializedVersion: 6
@@ -164,7 +166,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.68829918, y: -7.41270924, z: -.0416121483}
+  m_LocalPosition: {x: 3.63066673, y: .770875514, z: 6.09277773}
   m_LocalScale: {x: .391956627, y: .550318837, z: .4171471}
   m_Children:
   - {fileID: 400004}
@@ -174,6 +176,7 @@ Transform:
   - {fileID: 400028}
   - {fileID: 400000}
   m_Father: {fileID: 0}
+  m_RootOrder: 0
 --- !u!1002 &400003
 EditorExtensionImpl:
   serializedVersion: 6
@@ -184,10 +187,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .800000012, y: .800000012, z: .799999952}
+  m_LocalPosition: {x: 0, y: -.125018388, z: 0}
+  m_LocalScale: {x: .400000006, y: .400000006, z: .400000006}
   m_Children: []
   m_Father: {fileID: 400002}
+  m_RootOrder: 0
 --- !u!1002 &400005
 EditorExtensionImpl:
   serializedVersion: 6
@@ -199,9 +203,10 @@ Transform:
   m_GameObject: {fileID: 100020}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -.267931193, z: 0}
-  m_LocalScale: {x: .800000012, y: .800000012, z: .800000012}
+  m_LocalScale: {x: .400000006, y: .400000006, z: .400000006}
   m_Children: []
   m_Father: {fileID: 400002}
+  m_RootOrder: 1
 --- !u!1002 &400021
 EditorExtensionImpl:
   serializedVersion: 6
@@ -212,10 +217,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100022}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.10610127, z: 0}
+  m_LocalPosition: {x: 0, y: .307406783, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400002}
+  m_RootOrder: 2
 --- !u!1002 &400023
 EditorExtensionImpl:
   serializedVersion: 6
@@ -226,10 +232,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100024}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.17973328, z: 0}
-  m_LocalScale: {x: .800000012, y: .800000012, z: .800000012}
+  m_LocalPosition: {x: 0, y: 20.3268452, z: 0}
+  m_LocalScale: {x: .400000006, y: .400000006, z: .400000006}
   m_Children: []
   m_Father: {fileID: 400002}
+  m_RootOrder: 3
 --- !u!1002 &400025
 EditorExtensionImpl:
   serializedVersion: 6
@@ -240,10 +247,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .800000012, y: .800000012, z: .800000012}
+  m_LocalPosition: {x: 0, y: -.201551467, z: 0}
+  m_LocalScale: {x: .400000006, y: .400000006, z: .400000006}
   m_Children: []
   m_Father: {fileID: 400002}
+  m_RootOrder: 4
 --- !u!1002 &400029
 EditorExtensionImpl:
   serializedVersion: 6
@@ -404,7 +412,7 @@ ParticleAnimator:
   worldRotationAxis: {x: 0, y: 0, z: 0}
   localRotationAxis: {x: 0, y: 0, z: 0}
   sizeGrow: -.400000006
-  rndForce: {x: 10, y: 0, z: 10}
+  rndForce: {x: 5, y: 0, z: 5}
   force: {x: 0, y: 0, z: 0}
   damping: 1
   stopSimulation: 0
@@ -421,15 +429,15 @@ EllipsoidParticleEmitter:
   serializedVersion: 2
   m_Enabled: 1
   m_Emit: 1
-  minSize: 1.29999995
-  maxSize: 1.70000005
+  minSize: .5
+  maxSize: 1
   minEnergy: .400000006
   maxEnergy: .449999988
   minEmission: 45
   maxEmission: 45
   worldVelocity: {x: 0, y: 0, z: 0}
-  localVelocity: {x: 0, y: 1, z: 0}
-  rndVelocity: {x: .400000006, y: .300000012, z: .400000006}
+  localVelocity: {x: 0, y: .5, z: 0}
+  rndVelocity: {x: 1, y: .75, z: 1}
   emitterVelocityScale: .0500000007
   tangentVelocity: {x: 0, y: 0, z: -.100000001}
   angularVelocity: 0
@@ -451,15 +459,15 @@ EllipsoidParticleEmitter:
   serializedVersion: 2
   m_Enabled: 1
   m_Emit: 1
-  minSize: 1.29999995
-  maxSize: 1.70000005
+  minSize: .5
+  maxSize: 1
   minEnergy: .400000006
   maxEnergy: .449999988
   minEmission: 45
   maxEmission: 45
   worldVelocity: {x: 0, y: 0, z: 0}
-  localVelocity: {x: 0, y: 1, z: 0}
-  rndVelocity: {x: .400000006, y: .300000012, z: .400000006}
+  localVelocity: {x: 0, y: .5, z: 0}
+  rndVelocity: {x: 1, y: .5, z: 1}
   emitterVelocityScale: .0500000007
   tangentVelocity: {x: 0, y: 0, z: -.100000001}
   angularVelocity: 0
@@ -481,14 +489,14 @@ EllipsoidParticleEmitter:
   serializedVersion: 2
   m_Enabled: 1
   m_Emit: 1
-  minSize: 2
-  maxSize: 2.4000001
+  minSize: 2.25
+  maxSize: 2.5
   minEnergy: .5
   maxEnergy: .5
   minEmission: 20
   maxEmission: 20
   worldVelocity: {x: 0, y: 0, z: 0}
-  localVelocity: {x: 0, y: 2, z: 0}
+  localVelocity: {x: 0, y: .5, z: 0}
   rndVelocity: {x: 0, y: 0, z: 0}
   emitterVelocityScale: .0500000007
   tangentVelocity: {x: 0, y: 0, z: 0}
@@ -511,15 +519,15 @@ EllipsoidParticleEmitter:
   serializedVersion: 2
   m_Enabled: 1
   m_Emit: 1
-  minSize: 2
-  maxSize: 3
+  minSize: 1
+  maxSize: 1.5
   minEnergy: .800000012
   maxEnergy: 1.5
   minEmission: 10
   maxEmission: 10
   worldVelocity: {x: 0, y: 0, z: 0}
-  localVelocity: {x: 0, y: 4, z: 0}
-  rndVelocity: {x: .600000024, y: 2, z: .600000024}
+  localVelocity: {x: 0, y: 2, z: 0}
+  rndVelocity: {x: .300000012, y: 1, z: .300000012}
   emitterVelocityScale: .0500000007
   tangentVelocity: {x: 0, y: 0, z: 0}
   angularVelocity: 0
@@ -541,15 +549,15 @@ EllipsoidParticleEmitter:
   serializedVersion: 2
   m_Enabled: 1
   m_Emit: 1
-  minSize: .00999999978
-  maxSize: .0599999987
+  minSize: .0200000014
+  maxSize: .0800000057
   minEnergy: .5
   maxEnergy: 1
   minEmission: 0
   maxEmission: 20
   worldVelocity: {x: 0, y: 0, z: 0}
-  localVelocity: {x: 0, y: 4, z: 0}
-  rndVelocity: {x: 0, y: 1.60000002, z: 0}
+  localVelocity: {x: 0, y: 1, z: 0}
+  rndVelocity: {x: 0, y: .800000012, z: 0}
   emitterVelocityScale: .0500000007
   tangentVelocity: {x: 0, y: 0, z: 0}
   angularVelocity: 0
@@ -580,9 +588,8 @@ ParticleRenderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayer: 0
-  m_SortingOrder: 0
   m_SortingLayerID: 0
+  m_SortingOrder: 0
   serializedVersion: 2
   m_CameraVelocityScale: 0
   m_StretchParticles: 0
@@ -614,9 +621,8 @@ ParticleRenderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayer: 0
-  m_SortingOrder: 0
   m_SortingLayerID: 0
+  m_SortingOrder: 0
   serializedVersion: 2
   m_CameraVelocityScale: 0
   m_StretchParticles: 0
@@ -648,9 +654,8 @@ ParticleRenderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayer: 0
-  m_SortingOrder: 0
   m_SortingLayerID: 0
+  m_SortingOrder: 0
   serializedVersion: 2
   m_CameraVelocityScale: 0
   m_StretchParticles: 0
@@ -682,9 +687,8 @@ ParticleRenderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayer: 0
-  m_SortingOrder: 0
   m_SortingLayerID: 0
+  m_SortingOrder: 0
   serializedVersion: 2
   m_CameraVelocityScale: 0
   m_StretchParticles: 2
@@ -716,9 +720,8 @@ ParticleRenderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayer: 0
-  m_SortingOrder: 0
   m_SortingLayerID: 0
+  m_SortingOrder: 0
   serializedVersion: 2
   m_CameraVelocityScale: 0
   m_StretchParticles: 3
@@ -761,7 +764,7 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 1
+  m_Lightmapping: 0
   m_ShadowSamples: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -770,12 +773,28 @@ Light:
 --- !u!1002 &10800003
 EditorExtensionImpl:
   serializedVersion: 6
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49104b7d402a9694fb30014a9c507e08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  min: .0900000036
+  max: 1
+  useSmooth: 1
+  smoothTime: 20
+  intervalTime: .0799999982
 --- !u!1002 &11400001
 EditorExtensionImpl:
   serializedVersion: 6
 --- !u!114 &11400002
 MonoBehaviour:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100022}
