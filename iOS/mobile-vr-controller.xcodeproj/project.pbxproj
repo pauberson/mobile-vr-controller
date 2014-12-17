@@ -23,6 +23,7 @@
 		506D05DD1A2F287200CE0A0E /* SceneKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 506D05DC1A2F287200CE0A0E /* SceneKit.framework */; };
 		506D05DF1A2F28D300CE0A0E /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 503C47D719881F6B008BC373 /* Main_iPhone.storyboard */; };
 		506D05E51A2F356500CE0A0E /* plane.shader in Resources */ = {isa = PBXBuildFile; fileRef = 506D05E41A2F356500CE0A0E /* plane.shader */; };
+		50DF8F431A41A27D0017217A /* Background3dView.m in Sources */ = {isa = PBXBuildFile; fileRef = 50DF8F421A41A27D0017217A /* Background3dView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,8 @@
 		506D05DA1A2F275800CE0A0E /* scene.DAE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = scene.DAE; sourceTree = "<group>"; };
 		506D05DC1A2F287200CE0A0E /* SceneKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SceneKit.framework; path = System/Library/Frameworks/SceneKit.framework; sourceTree = SDKROOT; };
 		506D05E41A2F356500CE0A0E /* plane.shader */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = plane.shader; sourceTree = "<group>"; };
+		50DF8F411A41A27D0017217A /* Background3dView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Background3dView.h; sourceTree = "<group>"; };
+		50DF8F421A41A27D0017217A /* Background3dView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Background3dView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +113,8 @@
 				500B8C801989827000BB89EF /* SettingsViewController.m */,
 				503C47DD19881F6B008BC373 /* ViewController.h */,
 				503C47DE19881F6B008BC373 /* ViewController.m */,
+				50DF8F411A41A27D0017217A /* Background3dView.h */,
+				50DF8F421A41A27D0017217A /* Background3dView.m */,
 				503C47E019881F6B008BC373 /* Images.xcassets */,
 				503C47CC19881F6B008BC373 /* Supporting Files */,
 			);
@@ -204,6 +209,7 @@
 				503C48021988414F008BC373 /* GCDAsyncUdpSocket.m in Sources */,
 				503C47DF19881F6B008BC373 /* ViewController.m in Sources */,
 				500B8C811989827000BB89EF /* SettingsViewController.m in Sources */,
+				50DF8F431A41A27D0017217A /* Background3dView.m in Sources */,
 				503C47D619881F6B008BC373 /* AppDelegate.m in Sources */,
 				503C47D219881F6B008BC373 /* main.m in Sources */,
 			);

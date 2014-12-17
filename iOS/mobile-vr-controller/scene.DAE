@@ -4,8 +4,8 @@
   <contributor>
    <authoring_tool>SceneKit Collada Exporter v1.0</authoring_tool>
   </contributor>
-  <created>2014-12-03T17:54:04Z</created>
-  <modified>2014-12-03T17:54:04Z</modified>
+  <created>2014-12-17T12:15:57Z</created>
+  <modified>2014-12-17T12:15:57Z</modified>
   <unit meter="0.025400"/>
   <up_axis>Y_UP</up_axis>
  </asset>
@@ -158,12 +158,22 @@
  <library_visual_scenes>
   <visual_scene id="scene5">
    <node id="Omni012" name="Omni012">
-    <matrix>0.984808 0 0.173648 7819.292 0 1 0 412.3895 -0.173648 0 0.984808 -738.9761 0 0 0 1 </matrix>
+    <matrix>1 0 2.051613e-40 8213.384 0 1 0 395.8939 -2.051613e-40 0 1 -716.8068 0 0 0 1 </matrix>
     <instance_light url="#"/>
+    <extra>
+     <technique profile="SceneKit">
+      <visibility>0</visibility>
+     </technique>
+    </extra>
    </node>
    <node id="Omni013" name="Omni013">
-    <matrix>0.984808 0 0.173648 8663.628 0 1 0 369.6079 -0.173648 0 0.984808 -1524.919 0 0 0 1 </matrix>
+    <matrix>0.984808 0 0.173648 9356.718 0 1 0 369.6079 -0.173648 0 0.984808 -1524.919 0 0 0 1 </matrix>
     <instance_light url="#_ncl1_1"/>
+    <extra>
+     <technique profile="SceneKit">
+      <visibility>0</visibility>
+     </technique>
+    </extra>
    </node>
    <node id="Camera001" name="Camera001">
     <matrix>0.97437 0.216236 -0.062005 8150.44 0 0.275637 0.961262 1011.018 0.22495 -0.936625 0.268573 -518.9655 0 0 0 1 </matrix>

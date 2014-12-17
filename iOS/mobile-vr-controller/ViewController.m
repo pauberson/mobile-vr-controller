@@ -9,6 +9,10 @@
 #import "ViewController.h"
 #import "GCDAsyncUdpSocket.h"
 #import "SettingsViewController.h"
+#import "Background3dView.h"
+
+#import <OpenGLES/ES3/gl.h>
+#import <OpenGLES/ES3/glext.h>
 
 @import SceneKit;
 
@@ -26,14 +30,12 @@ typedef struct TouchPoint TouchPoint;
     int halfViewWidth;
     int halfViewHeight;
     bool isTouching;
-    int touchPosX;
-    int touchPosY;
     TouchPoint touchPoint;
     bool hasStarted;
 }
 
 
-@property SCNView *theView;
+@property Background3dView *background3dView;
 @property (weak) NSString *udpHost;
 @property int udpPort;
 @property UITapGestureRecognizer *tapGestureRecognizer;
@@ -83,34 +85,14 @@ typedef struct TouchPoint TouchPoint;
 }
 
 - (void)start{
-    self.theView = [[SCNView alloc] initWithFrame:self.view.frame options:nil];
-    self.theView.scene = [SCNScene sceneNamed:@"scene"];
-    self.theView.antialiasingMode = SCNAntialiasingModeMultisampling2X;
-    self.theView.backgroundColor = [UIColor blackColor];
-    self.theView.allowsCameraControl = YES;
-    SCNNode *planeNode = [self.theView.scene.rootNode childNodeWithName:@"Plane" recursively:NO];
-    SCNGeometry *planeGeometry = planeNode.geometry;
-    SCNMaterial *planeMaterial = planeGeometry.firstMaterial;
-    self.theView.preferredFramesPerSecond = 60;
-    self.theView.showsStatistics = YES;
-    [self.theView play:nil];
     
-    NSError *error = nil;
-    NSString *shaderSource = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"plane" ofType:@"shader"] encoding:NSUTF8StringEncoding error:&error];
-    NSDictionary *shaderModifiers = [NSDictionary dictionaryWithObject:shaderSource forKey:SCNShaderModifierEntryPointGeometry];
-    //planeMaterial.shaderModifiers = shaderModifiers;
-    planeGeometry.shaderModifiers = shaderModifiers;
-    [self.view addSubview:self.theView];
+    self.background3dView = [[Background3dView alloc] initWithFrame:self.view.frame options:nil];
+    [self.background3dView setup];
+    [self.view addSubview:self.background3dView];
     
     [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(update:) userInfo:nil repeats:YES];
     hasStarted = true;
-    
-    SCNNode *lightNode1 = [self.theView.scene.rootNode childNodeWithName:@"Omni012" recursively:NO];
-    lightNode1.light.shadowMode = SCNShadowModeDeferred;
-    
-    SCNNode *lightNode2 = [self.theView.scene.rootNode childNodeWithName:@"Omni013" recursively:NO];
-    lightNode2.light.shadowMode = SCNShadowModeDeferred;
-    
+
 }
 
 - (void)update:(NSTimer*)theTimer
@@ -124,13 +106,7 @@ typedef struct TouchPoint TouchPoint;
     NSString *gyroMsg = [NSString stringWithFormat:@"gyro,%0.1f,%0.1f,%0.1f", d.attitude.pitch, d.attitude.roll, d.attitude.yaw];
 
     [self sendMessage:gyroMsg];
-    /*
-    SCNNode *lightNode1 = [self.theView.scene.rootNode childNodeWithName:@"Omni012" recursively:NO];
-    lightNode1.position = SCNVector3Make(lightNode1.position.x, lightNode1.position.y, lightNode1.position.z-0.01);
-
-    SCNNode *lightNode2 = [self.theView.scene.rootNode childNodeWithName:@"Omni013" recursively:NO];
-    lightNode2.position = SCNVector3Make(lightNode2.position.x, lightNode2.position.y, lightNode2.position.z+0.01);
-    */
+    
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
