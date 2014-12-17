@@ -10,7 +10,6 @@
 
 @interface Background3dView : SCNView <SCNSceneRendererDelegate>
 
-
 - (void)setup;
 
 @end
