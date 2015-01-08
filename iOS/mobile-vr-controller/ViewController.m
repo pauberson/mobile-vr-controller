@@ -9,6 +9,12 @@
 #import "ViewController.h"
 #import "GCDAsyncUdpSocket.h"
 #import "SettingsViewController.h"
+#import "Background3dView.h"
+
+#import <OpenGLES/ES3/gl.h>
+#import <OpenGLES/ES3/glext.h>
+
+@import SceneKit;
 
 struct TouchPoint {
     int x;
@@ -24,11 +30,12 @@ typedef struct TouchPoint TouchPoint;
     int halfViewWidth;
     int halfViewHeight;
     bool isTouching;
-    int touchPosX;
-    int touchPosY;
     TouchPoint touchPoint;
+    bool hasStarted;
 }
 
+
+@property Background3dView *background3dView;
 @property (weak) NSString *udpHost;
 @property int udpPort;
 @property UITapGestureRecognizer *tapGestureRecognizer;
@@ -55,9 +62,8 @@ typedef struct TouchPoint TouchPoint;
     halfViewWidth = self.view.bounds.size.width/2;
     halfViewHeight = self.view.bounds.size.height/2;
     isTouching = false;
-    
-    [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(update:) userInfo:nil repeats:YES];
-    
+    hasStarted = false;
+
     UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
     [self.view addGestureRecognizer:tapGestureRecognizer];
     
@@ -74,6 +80,21 @@ typedef struct TouchPoint TouchPoint;
     [super viewDidLoad];
 }
 
+- (IBAction)startPressed:(id)sender {
+    [self start];
+}
+
+- (void)start{
+    
+    self.background3dView = [[Background3dView alloc] initWithFrame:self.view.frame options:nil];
+    [self.background3dView setup];
+    [self.view addSubview:self.background3dView];
+    
+    [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(update:) userInfo:nil repeats:YES];
+    hasStarted = true;
+
+}
+
 - (void)update:(NSTimer*)theTimer
 {
     if (isTouching){
@@ -87,7 +108,6 @@ typedef struct TouchPoint TouchPoint;
     [self sendMessage:gyroMsg];
     
 }
-
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     [self handleTouches:touches withEvent:event];
@@ -134,6 +154,8 @@ typedef struct TouchPoint TouchPoint;
 }
 
 - (void)sendMessage:(NSString *)msg{
+    if (!hasStarted) return;
+    
     NSData *data = [msg dataUsingEncoding:NSUTF8StringEncoding];
     [udpSocket sendData:data toHost:self.udpHost port:self.udpPort withTimeout:-1 tag:tag++];
 }
@@ -170,4 +192,5 @@ typedef struct TouchPoint TouchPoint;
     [self presentViewController:settingsController animated:YES completion: nil];
     
 }
+
 @end

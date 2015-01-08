@@ -15,12 +15,15 @@
 		503C47D019881F6B008BC373 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 503C47CE19881F6B008BC373 /* InfoPlist.strings */; };
 		503C47D219881F6B008BC373 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 503C47D119881F6B008BC373 /* main.m */; };
 		503C47D619881F6B008BC373 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 503C47D519881F6B008BC373 /* AppDelegate.m */; };
-		503C47D919881F6B008BC373 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 503C47D719881F6B008BC373 /* Main_iPhone.storyboard */; };
-		503C47DC19881F6B008BC373 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 503C47DA19881F6B008BC373 /* Main_iPad.storyboard */; };
 		503C47DF19881F6B008BC373 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 503C47DE19881F6B008BC373 /* ViewController.m */; };
 		503C47E119881F6B008BC373 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 503C47E019881F6B008BC373 /* Images.xcassets */; };
 		503C48021988414F008BC373 /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 503C48011988414F008BC373 /* GCDAsyncUdpSocket.m */; };
 		5052028219CB594300D07E14 /* ui.png in Resources */ = {isa = PBXBuildFile; fileRef = 5052028119CB594300D07E14 /* ui.png */; };
+		506D05DB1A2F275800CE0A0E /* scene.DAE in Resources */ = {isa = PBXBuildFile; fileRef = 506D05DA1A2F275800CE0A0E /* scene.DAE */; };
+		506D05DD1A2F287200CE0A0E /* SceneKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 506D05DC1A2F287200CE0A0E /* SceneKit.framework */; };
+		506D05DF1A2F28D300CE0A0E /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 503C47D719881F6B008BC373 /* Main_iPhone.storyboard */; };
+		506D05E51A2F356500CE0A0E /* plane.shader in Resources */ = {isa = PBXBuildFile; fileRef = 506D05E41A2F356500CE0A0E /* plane.shader */; };
+		50DF8F431A41A27D0017217A /* Background3dView.m in Sources */ = {isa = PBXBuildFile; fileRef = 50DF8F421A41A27D0017217A /* Background3dView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,13 +41,17 @@
 		503C47D419881F6B008BC373 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		503C47D519881F6B008BC373 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		503C47D819881F6B008BC373 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
-		503C47DB19881F6B008BC373 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		503C47DD19881F6B008BC373 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		503C47DE19881F6B008BC373 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		503C47E019881F6B008BC373 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		503C48001988414F008BC373 /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
 		503C48011988414F008BC373 /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
 		5052028119CB594300D07E14 /* ui.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ui.png; sourceTree = "<group>"; };
+		506D05DA1A2F275800CE0A0E /* scene.DAE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = scene.DAE; sourceTree = "<group>"; };
+		506D05DC1A2F287200CE0A0E /* SceneKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SceneKit.framework; path = System/Library/Frameworks/SceneKit.framework; sourceTree = SDKROOT; };
+		506D05E41A2F356500CE0A0E /* plane.shader */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = plane.shader; sourceTree = "<group>"; };
+		50DF8F411A41A27D0017217A /* Background3dView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Background3dView.h; sourceTree = "<group>"; };
+		50DF8F421A41A27D0017217A /* Background3dView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Background3dView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				506D05DD1A2F287200CE0A0E /* SceneKit.framework in Frameworks */,
 				503C47C819881F6B008BC373 /* CoreGraphics.framework in Frameworks */,
 				503C47CA19881F6B008BC373 /* UIKit.framework in Frameworks */,
 				503C47C619881F6B008BC373 /* Foundation.framework in Frameworks */,
@@ -82,6 +90,7 @@
 		503C47C419881F6B008BC373 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				506D05DC1A2F287200CE0A0E /* SceneKit.framework */,
 				503C47C519881F6B008BC373 /* Foundation.framework */,
 				503C47C719881F6B008BC373 /* CoreGraphics.framework */,
 				503C47C919881F6B008BC373 /* UIKit.framework */,
@@ -92,17 +101,20 @@
 		503C47CB19881F6B008BC373 /* mobile-vr-controller */ = {
 			isa = PBXGroup;
 			children = (
+				506D05E41A2F356500CE0A0E /* plane.shader */,
 				503C48001988414F008BC373 /* GCDAsyncUdpSocket.h */,
 				503C48011988414F008BC373 /* GCDAsyncUdpSocket.m */,
 				503C47D419881F6B008BC373 /* AppDelegate.h */,
 				503C47D519881F6B008BC373 /* AppDelegate.m */,
 				503C47D719881F6B008BC373 /* Main_iPhone.storyboard */,
+				506D05DA1A2F275800CE0A0E /* scene.DAE */,
 				5052028119CB594300D07E14 /* ui.png */,
 				500B8C7F1989827000BB89EF /* SettingsViewController.h */,
 				500B8C801989827000BB89EF /* SettingsViewController.m */,
-				503C47DA19881F6B008BC373 /* Main_iPad.storyboard */,
 				503C47DD19881F6B008BC373 /* ViewController.h */,
 				503C47DE19881F6B008BC373 /* ViewController.m */,
+				50DF8F411A41A27D0017217A /* Background3dView.h */,
+				50DF8F421A41A27D0017217A /* Background3dView.m */,
 				503C47E019881F6B008BC373 /* Images.xcassets */,
 				503C47CC19881F6B008BC373 /* Supporting Files */,
 			);
@@ -150,7 +162,7 @@
 				ORGANIZATIONNAME = "Lumacode Ltd.";
 				TargetAttributes = {
 					503C47C119881F6B008BC373 = {
-						DevelopmentTeam = 5E3UEXL3AT;
+						DevelopmentTeam = 9JJ5WE228M;
 					};
 				};
 			};
@@ -177,11 +189,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				503C47DC19881F6B008BC373 /* Main_iPad.storyboard in Resources */,
+				506D05DF1A2F28D300CE0A0E /* Main_iPhone.storyboard in Resources */,
 				5052028219CB594300D07E14 /* ui.png in Resources */,
 				503C47E119881F6B008BC373 /* Images.xcassets in Resources */,
 				500B8C7E1989753400BB89EF /* Settings.bundle in Resources */,
-				503C47D919881F6B008BC373 /* Main_iPhone.storyboard in Resources */,
+				506D05E51A2F356500CE0A0E /* plane.shader in Resources */,
+				506D05DB1A2F275800CE0A0E /* scene.DAE in Resources */,
 				503C47D019881F6B008BC373 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -196,6 +209,7 @@
 				503C48021988414F008BC373 /* GCDAsyncUdpSocket.m in Sources */,
 				503C47DF19881F6B008BC373 /* ViewController.m in Sources */,
 				500B8C811989827000BB89EF /* SettingsViewController.m in Sources */,
+				50DF8F431A41A27D0017217A /* Background3dView.m in Sources */,
 				503C47D619881F6B008BC373 /* AppDelegate.m in Sources */,
 				503C47D219881F6B008BC373 /* main.m in Sources */,
 			);
@@ -218,14 +232,6 @@
 				503C47D819881F6B008BC373 /* Base */,
 			);
 			name = Main_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		503C47DA19881F6B008BC373 /* Main_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				503C47DB19881F6B008BC373 /* Base */,
-			);
-			name = Main_iPad.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -263,7 +269,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -296,7 +302,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -313,8 +319,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "mobile-vr-controller/mobile-vr-controller-Prefix.pch";
 				INFOPLIST_FILE = "mobile-vr-controller/mobile-vr-controller-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -329,8 +337,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "mobile-vr-controller/mobile-vr-controller-Prefix.pch";
 				INFOPLIST_FILE = "mobile-vr-controller/mobile-vr-controller-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
