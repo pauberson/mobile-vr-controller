@@ -18,19 +18,25 @@
 		503C47DF19881F6B008BC373 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 503C47DE19881F6B008BC373 /* ViewController.m */; };
 		503C47E119881F6B008BC373 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 503C47E019881F6B008BC373 /* Images.xcassets */; };
 		503C48021988414F008BC373 /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 503C48011988414F008BC373 /* GCDAsyncUdpSocket.m */; };
-		5052028219CB594300D07E14 /* ui.png in Resources */ = {isa = PBXBuildFile; fileRef = 5052028119CB594300D07E14 /* ui.png */; };
 		506D05DB1A2F275800CE0A0E /* scene.DAE in Resources */ = {isa = PBXBuildFile; fileRef = 506D05DA1A2F275800CE0A0E /* scene.DAE */; };
 		506D05DD1A2F287200CE0A0E /* SceneKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 506D05DC1A2F287200CE0A0E /* SceneKit.framework */; };
 		506D05DF1A2F28D300CE0A0E /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 503C47D719881F6B008BC373 /* Main_iPhone.storyboard */; };
 		506D05E51A2F356500CE0A0E /* plane.shader in Resources */ = {isa = PBXBuildFile; fileRef = 506D05E41A2F356500CE0A0E /* plane.shader */; };
 		50DF8F431A41A27D0017217A /* Background3dView.m in Sources */ = {isa = PBXBuildFile; fileRef = 50DF8F421A41A27D0017217A /* Background3dView.m */; };
+		50EB9DCD1A5F2EB600D7BFF6 /* instruction1.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EB9DC61A5F2EB600D7BFF6 /* instruction1.png */; };
+		50EB9DCE1A5F2EB600D7BFF6 /* instruction2.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EB9DC71A5F2EB600D7BFF6 /* instruction2.png */; };
+		50EB9DCF1A5F2EB600D7BFF6 /* instruction3.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EB9DC81A5F2EB600D7BFF6 /* instruction3.png */; };
+		50EB9DD01A5F2EB600D7BFF6 /* instruction4.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EB9DC91A5F2EB600D7BFF6 /* instruction4.png */; };
+		50EB9DD11A5F2EB600D7BFF6 /* instruction5.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EB9DCA1A5F2EB600D7BFF6 /* instruction5.png */; };
+		50EB9DD21A5F2EB600D7BFF6 /* logo+title.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EB9DCB1A5F2EB600D7BFF6 /* logo+title.png */; };
+		50EB9DD31A5F2EB600D7BFF6 /* overlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EB9DCC1A5F2EB600D7BFF6 /* overlay.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		500B8C7D1989753400BB89EF /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = "mobile-vr-controller/Settings.bundle"; sourceTree = "<group>"; };
 		500B8C7F1989827000BB89EF /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		500B8C801989827000BB89EF /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
-		503C47C219881F6B008BC373 /* mobile-vr-controller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "mobile-vr-controller.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		503C47C219881F6B008BC373 /* VR Touch Control.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VR Touch Control.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		503C47C519881F6B008BC373 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		503C47C719881F6B008BC373 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		503C47C919881F6B008BC373 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -46,12 +52,18 @@
 		503C47E019881F6B008BC373 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		503C48001988414F008BC373 /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
 		503C48011988414F008BC373 /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
-		5052028119CB594300D07E14 /* ui.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ui.png; sourceTree = "<group>"; };
 		506D05DA1A2F275800CE0A0E /* scene.DAE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = scene.DAE; sourceTree = "<group>"; };
 		506D05DC1A2F287200CE0A0E /* SceneKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SceneKit.framework; path = System/Library/Frameworks/SceneKit.framework; sourceTree = SDKROOT; };
 		506D05E41A2F356500CE0A0E /* plane.shader */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = plane.shader; sourceTree = "<group>"; };
 		50DF8F411A41A27D0017217A /* Background3dView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Background3dView.h; sourceTree = "<group>"; };
 		50DF8F421A41A27D0017217A /* Background3dView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Background3dView.m; sourceTree = "<group>"; };
+		50EB9DC61A5F2EB600D7BFF6 /* instruction1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = instruction1.png; sourceTree = "<group>"; };
+		50EB9DC71A5F2EB600D7BFF6 /* instruction2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = instruction2.png; sourceTree = "<group>"; };
+		50EB9DC81A5F2EB600D7BFF6 /* instruction3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = instruction3.png; sourceTree = "<group>"; };
+		50EB9DC91A5F2EB600D7BFF6 /* instruction4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = instruction4.png; sourceTree = "<group>"; };
+		50EB9DCA1A5F2EB600D7BFF6 /* instruction5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = instruction5.png; sourceTree = "<group>"; };
+		50EB9DCB1A5F2EB600D7BFF6 /* logo+title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo+title.png"; sourceTree = "<group>"; };
+		50EB9DCC1A5F2EB600D7BFF6 /* overlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = overlay.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +86,7 @@
 			children = (
 				500B8C7D1989753400BB89EF /* Settings.bundle */,
 				503C47CB19881F6B008BC373 /* mobile-vr-controller */,
+				50EB9DC51A5F2EB600D7BFF6 /* UI */,
 				503C47C419881F6B008BC373 /* Frameworks */,
 				503C47C319881F6B008BC373 /* Products */,
 			);
@@ -82,7 +95,7 @@
 		503C47C319881F6B008BC373 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				503C47C219881F6B008BC373 /* mobile-vr-controller.app */,
+				503C47C219881F6B008BC373 /* VR Touch Control.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -108,7 +121,6 @@
 				503C47D519881F6B008BC373 /* AppDelegate.m */,
 				503C47D719881F6B008BC373 /* Main_iPhone.storyboard */,
 				506D05DA1A2F275800CE0A0E /* scene.DAE */,
-				5052028119CB594300D07E14 /* ui.png */,
 				500B8C7F1989827000BB89EF /* SettingsViewController.h */,
 				500B8C801989827000BB89EF /* SettingsViewController.m */,
 				503C47DD19881F6B008BC373 /* ViewController.h */,
@@ -132,6 +144,21 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		50EB9DC51A5F2EB600D7BFF6 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				50EB9DC61A5F2EB600D7BFF6 /* instruction1.png */,
+				50EB9DC71A5F2EB600D7BFF6 /* instruction2.png */,
+				50EB9DC81A5F2EB600D7BFF6 /* instruction3.png */,
+				50EB9DC91A5F2EB600D7BFF6 /* instruction4.png */,
+				50EB9DCA1A5F2EB600D7BFF6 /* instruction5.png */,
+				50EB9DCB1A5F2EB600D7BFF6 /* logo+title.png */,
+				50EB9DCC1A5F2EB600D7BFF6 /* overlay.png */,
+			);
+			name = UI;
+			path = "mobile-vr-controller/UI";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -149,7 +176,7 @@
 			);
 			name = "mobile-vr-controller";
 			productName = "mobile-vr-controller";
-			productReference = 503C47C219881F6B008BC373 /* mobile-vr-controller.app */;
+			productReference = 503C47C219881F6B008BC373 /* VR Touch Control.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -190,12 +217,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				506D05DF1A2F28D300CE0A0E /* Main_iPhone.storyboard in Resources */,
-				5052028219CB594300D07E14 /* ui.png in Resources */,
+				50EB9DCF1A5F2EB600D7BFF6 /* instruction3.png in Resources */,
 				503C47E119881F6B008BC373 /* Images.xcassets in Resources */,
 				500B8C7E1989753400BB89EF /* Settings.bundle in Resources */,
+				50EB9DCE1A5F2EB600D7BFF6 /* instruction2.png in Resources */,
 				506D05E51A2F356500CE0A0E /* plane.shader in Resources */,
 				506D05DB1A2F275800CE0A0E /* scene.DAE in Resources */,
+				50EB9DCD1A5F2EB600D7BFF6 /* instruction1.png in Resources */,
 				503C47D019881F6B008BC373 /* InfoPlist.strings in Resources */,
+				50EB9DD11A5F2EB600D7BFF6 /* instruction5.png in Resources */,
+				50EB9DD01A5F2EB600D7BFF6 /* instruction4.png in Resources */,
+				50EB9DD31A5F2EB600D7BFF6 /* overlay.png in Resources */,
+				50EB9DD21A5F2EB600D7BFF6 /* logo+title.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,7 +353,7 @@
 				GCC_PREFIX_HEADER = "mobile-vr-controller/mobile-vr-controller-Prefix.pch";
 				INFOPLIST_FILE = "mobile-vr-controller/mobile-vr-controller-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "VR Touch Control";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -338,7 +371,7 @@
 				GCC_PREFIX_HEADER = "mobile-vr-controller/mobile-vr-controller-Prefix.pch";
 				INFOPLIST_FILE = "mobile-vr-controller/mobile-vr-controller-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "VR Touch Control";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
