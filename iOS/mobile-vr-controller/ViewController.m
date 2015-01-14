@@ -10,6 +10,7 @@
 #import "GCDAsyncUdpSocket.h"
 #import "SettingsViewController.h"
 #import "Background3dView.h"
+#import "InstructionPageViewController.h"
 
 #import <OpenGLES/ES3/gl.h>
 #import <OpenGLES/ES3/glext.h>
@@ -34,12 +35,18 @@ typedef struct TouchPoint TouchPoint;
     bool hasStarted;
 }
 
-
+@property (weak, nonatomic) IBOutlet UIView *interfaceHolder;
+@property (weak, nonatomic) IBOutlet UIView *backgroundHolder;
+@property (weak, nonatomic) IBOutlet UIView *instructionsHolder;
 @property Background3dView *background3dView;
 @property (weak) NSString *udpHost;
 @property int udpPort;
 @property UITapGestureRecognizer *tapGestureRecognizer;
 @property (weak) CMMotionManager *motionManager;
+
+@property (strong, nonatomic) UIPageViewController *pageViewController;
+@property (strong, nonatomic) NSArray *instructionPageImages;
+
 
 @end
 
@@ -69,6 +76,36 @@ typedef struct TouchPoint TouchPoint;
     
     id appDelegate = [UIApplication sharedApplication].delegate;
     self.motionManager = [appDelegate motionManager];
+    
+
+    // add background view
+    self.background3dView = [[Background3dView alloc] initWithFrame:self.view.frame options:nil];
+    [self.background3dView setup];
+    [self.backgroundHolder addSubview:self.background3dView];
+    
+    
+    // add instructions page view controller
+    
+    UIPageControl *pageControl = [UIPageControl appearance];
+    pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
+    pageControl.currentPageIndicatorTintColor = [UIColor blackColor];
+    pageControl.backgroundColor = [UIColor clearColor];
+    
+    _instructionPageImages = @[@"instruction1.png", @"instruction2.png", @"instruction3.png", @"instruction4.png", @"instruction5.png"];
+    
+    self.pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageViewController"];
+    self.pageViewController.dataSource = self;
+    
+    InstructionPageViewController *startingViewController = [self viewControllerAtIndex:0];
+    NSArray *viewControllers = @[startingViewController];
+    [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
+    
+    self.pageViewController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    
+    [self addChildViewController:_pageViewController];
+    [self.instructionsHolder addSubview:_pageViewController.view];
+    [self.pageViewController didMoveToParentViewController:self];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -80,15 +117,12 @@ typedef struct TouchPoint TouchPoint;
     [super viewDidLoad];
 }
 
-- (IBAction)startPressed:(id)sender {
-    [self start];
-}
-
 - (void)start{
+
+    [UIView animateWithDuration:1.0
+                     animations:^{self.interfaceHolder.alpha = 0.0;}
+                     completion:^(BOOL finished){ [self.interfaceHolder removeFromSuperview]; }];
     
-    self.background3dView = [[Background3dView alloc] initWithFrame:self.view.frame options:nil];
-    [self.background3dView setup];
-    [self.view addSubview:self.background3dView];
     
     [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(update:) userInfo:nil repeats:YES];
     hasStarted = true;
@@ -146,6 +180,11 @@ typedef struct TouchPoint TouchPoint;
 
 - (void)handleTap:(UITapGestureRecognizer *)sender
 {
+    if (!hasStarted){
+        [self start];
+        return;
+    }
+    
     if (sender.state == UIGestureRecognizerStateEnded){
         TouchPoint tapPoint = [self CGPointToTouchPoint:[sender locationInView:self.view]];
         NSString *msg = [NSString stringWithFormat:@"tap,%d,%d", tapPoint.x, tapPoint.y];
@@ -191,6 +230,59 @@ typedef struct TouchPoint TouchPoint;
     
     [self presentViewController:settingsController animated:YES completion: nil];
     
+}
+
+- (InstructionPageViewController *)viewControllerAtIndex:(NSUInteger)index
+{
+    if (([self.instructionPageImages count] == 0) || (index >= [self.instructionPageImages count])) {
+        return nil;
+    }
+    
+    // Create a new view controller and pass suitable data.
+    InstructionPageViewController *instructionPageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"InstructionPageViewController"];
+    instructionPageViewController.imageFile = self.instructionPageImages[index];
+    instructionPageViewController.pageIndex = index;
+    
+    return instructionPageViewController;
+}
+
+#pragma mark - Page View Controller Data Source
+
+- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController
+{
+    NSUInteger index = ((InstructionPageViewController*) viewController).pageIndex;
+    
+    if ((index == 0) || (index == NSNotFound)) {
+        return nil;
+    }
+    
+    index--;
+    return [self viewControllerAtIndex:index];
+}
+
+- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController
+{
+    NSUInteger index = ((InstructionPageViewController*) viewController).pageIndex;
+    
+    if (index == NSNotFound) {
+        return nil;
+    }
+    
+    index++;
+    if (index == [self.instructionPageImages count]) {
+        return nil;
+    }
+    return [self viewControllerAtIndex:index];
+}
+
+- (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController
+{
+    return [self.instructionPageImages count];
+}
+
+- (NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController
+{
+    return 0;
 }
 
 @end

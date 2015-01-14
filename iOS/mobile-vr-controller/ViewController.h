@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "SettingsViewController.h"
 #import <CoreMotion/CoreMotion.h>
+#import "InstructionPageViewController.h"
 
-@interface ViewController : UIViewController <SaveSettingsDelegate> 
-
+@interface ViewController : UIViewController <SaveSettingsDelegate,  UIPageViewControllerDataSource>
 
 @end

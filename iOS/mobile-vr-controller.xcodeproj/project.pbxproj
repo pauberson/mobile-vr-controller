@@ -22,6 +22,7 @@
 		506D05DD1A2F287200CE0A0E /* SceneKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 506D05DC1A2F287200CE0A0E /* SceneKit.framework */; };
 		506D05DF1A2F28D300CE0A0E /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 503C47D719881F6B008BC373 /* Main_iPhone.storyboard */; };
 		506D05E51A2F356500CE0A0E /* plane.shader in Resources */ = {isa = PBXBuildFile; fileRef = 506D05E41A2F356500CE0A0E /* plane.shader */; };
+		50A31D011A647750007C28A1 /* InstructionPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A31D001A647750007C28A1 /* InstructionPageViewController.m */; };
 		50DF8F431A41A27D0017217A /* Background3dView.m in Sources */ = {isa = PBXBuildFile; fileRef = 50DF8F421A41A27D0017217A /* Background3dView.m */; };
 		50EB9DCD1A5F2EB600D7BFF6 /* instruction1.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EB9DC61A5F2EB600D7BFF6 /* instruction1.png */; };
 		50EB9DCE1A5F2EB600D7BFF6 /* instruction2.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EB9DC71A5F2EB600D7BFF6 /* instruction2.png */; };
@@ -55,6 +56,8 @@
 		506D05DA1A2F275800CE0A0E /* scene.DAE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = scene.DAE; sourceTree = "<group>"; };
 		506D05DC1A2F287200CE0A0E /* SceneKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SceneKit.framework; path = System/Library/Frameworks/SceneKit.framework; sourceTree = SDKROOT; };
 		506D05E41A2F356500CE0A0E /* plane.shader */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = plane.shader; sourceTree = "<group>"; };
+		50A31CFF1A647750007C28A1 /* InstructionPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstructionPageViewController.h; sourceTree = "<group>"; };
+		50A31D001A647750007C28A1 /* InstructionPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstructionPageViewController.m; sourceTree = "<group>"; };
 		50DF8F411A41A27D0017217A /* Background3dView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Background3dView.h; sourceTree = "<group>"; };
 		50DF8F421A41A27D0017217A /* Background3dView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Background3dView.m; sourceTree = "<group>"; };
 		50EB9DC61A5F2EB600D7BFF6 /* instruction1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = instruction1.png; sourceTree = "<group>"; };
@@ -114,6 +117,8 @@
 		503C47CB19881F6B008BC373 /* mobile-vr-controller */ = {
 			isa = PBXGroup;
 			children = (
+				50A31CFF1A647750007C28A1 /* InstructionPageViewController.h */,
+				50A31D001A647750007C28A1 /* InstructionPageViewController.m */,
 				506D05E41A2F356500CE0A0E /* plane.shader */,
 				503C48001988414F008BC373 /* GCDAsyncUdpSocket.h */,
 				503C48011988414F008BC373 /* GCDAsyncUdpSocket.m */,
@@ -245,6 +250,7 @@
 				50DF8F431A41A27D0017217A /* Background3dView.m in Sources */,
 				503C47D619881F6B008BC373 /* AppDelegate.m in Sources */,
 				503C47D219881F6B008BC373 /* main.m in Sources */,
+				50A31D011A647750007C28A1 /* InstructionPageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
