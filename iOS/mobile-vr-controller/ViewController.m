@@ -119,7 +119,7 @@ typedef struct TouchPoint TouchPoint;
 
 - (void)start{
 
-    [UIView animateWithDuration:1.0
+    [UIView animateWithDuration:0.5
                      animations:^{self.interfaceHolder.alpha = 0.0;}
                      completion:^(BOOL finished){ [self.interfaceHolder removeFromSuperview]; }];
     
