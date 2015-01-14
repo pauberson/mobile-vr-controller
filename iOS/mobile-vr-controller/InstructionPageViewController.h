@@ -10,4 +10,8 @@
 
 @interface InstructionPageViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
+@property NSUInteger pageIndex;
+@property NSString *imageFile;
+
 @end
