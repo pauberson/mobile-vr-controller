@@ -60,7 +60,7 @@
         <!--Instruction Page View Controller-->
         <scene sceneID="fxn-M4-QSh">
             <objects>
-                <viewController storyboardIdentifier="InstructionPageViewController" id="sOj-rz-rJV" customClass="InstructionPageViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="InstructionPageViewController" extendedLayoutIncludesOpaqueBars="YES" id="sOj-rz-rJV" customClass="InstructionPageViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yxY-Jb-acq"/>
                         <viewControllerLayoutGuide type="bottom" id="m6m-UI-uLz"/>
@@ -69,7 +69,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="instruction1.png" translatesAutoresizingMaskIntoConstraints="NO" id="eYh-gb-vxq">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="instruction1.png" translatesAutoresizingMaskIntoConstraints="NO" id="eYh-gb-vxq">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
                         </subviews>
