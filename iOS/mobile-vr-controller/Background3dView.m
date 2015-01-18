@@ -13,6 +13,7 @@
     bool isTouching;
     CGPoint touchPoint;
     double curTime;
+    bool isInteractive;
 }
 
 @property SCNGeometry *planeGeometry;
@@ -43,10 +44,35 @@
     
     self.planeGeometry.shaderModifiers = shaderModifiers;
     
+    [self setStandbyMode];
+    
+    [self play:nil];
+    
+    self.delegate = self;
+}
+
+- (void) setStandbyMode {
+    isInteractive = NO;
+    
+    [self.planeGeometry setValue:[NSValue valueWithCGPoint:CGPointMake(-300,300)] forKey:@"waveCentre"];
+    [self.planeGeometry setValue:[NSNumber numberWithFloat:1000.0f] forKey:@"waveLength"];
+    [self.planeGeometry setValue:[NSNumber numberWithFloat:20.0f] forKey:@"amplitude"];
+    [self.planeGeometry setValue:[NSNumber numberWithFloat:5.0f] forKey:@"phaseDuration"];
+    [self.planeGeometry setValue:[NSNumber numberWithFloat:5000.0f] forKey:@"fallOffRadius"];
+    
+    [self.planeGeometry setValue:[NSNumber numberWithFloat:0.0f] forKey:@"animStartTime"];
+    [self.planeGeometry setValue:[NSNumber numberWithFloat:FLT_MAX] forKey:@"animEndTime"];
+    [self.planeGeometry setValue:[NSNumber numberWithFloat:1.0f] forKey:@"animFadeTime"];
+    [self.planeGeometry setValue:[NSNumber numberWithFloat:0.0f] forKey:@"curTime"];
+}
+
+- (void) setInteractiveMode {
+    isInteractive = YES;
+    
     [self.planeGeometry setValue:[NSValue valueWithCGPoint:CGPointMake(0,0)] forKey:@"waveCentre"];
-    [self.planeGeometry setValue:[NSNumber numberWithFloat:1200.0f] forKey:@"waveLength"];
+    [self.planeGeometry setValue:[NSNumber numberWithFloat:700.0f] forKey:@"waveLength"];
     [self.planeGeometry setValue:[NSNumber numberWithFloat:0.0f] forKey:@"amplitude"];
-    [self.planeGeometry setValue:[NSNumber numberWithFloat:2.0f] forKey:@"phaseDuration"];
+    [self.planeGeometry setValue:[NSNumber numberWithFloat:1.0f] forKey:@"phaseDuration"];
     [self.planeGeometry setValue:[NSNumber numberWithFloat:600.0f] forKey:@"fallOffRadius"];
     
     
@@ -54,12 +80,8 @@
     [self.planeGeometry setValue:[NSNumber numberWithFloat:FLT_MAX] forKey:@"animEndTime"];
     [self.planeGeometry setValue:[NSNumber numberWithFloat:1.0f] forKey:@"animFadeTime"];
     [self.planeGeometry setValue:[NSNumber numberWithFloat:0.0f] forKey:@"curTime"];
-
-    [self play:nil];
     
-    self.delegate = self;
 }
-
 
 - (void)renderer:(id<SCNSceneRenderer>)aRenderer updateAtTime:(NSTimeInterval)time {
 
@@ -94,10 +116,14 @@
 - (void)handleTouches:(NSSet *)touches withEvent:(UIEvent *)event{
     
     if (!isTouching){
+        
+        if (!isInteractive){
+            [self setInteractiveMode];
+        }
         [self.planeGeometry setValue:[NSNumber numberWithFloat:0.0f] forKey:@"amplitude"];
         [SCNTransaction begin];
         [SCNTransaction setAnimationDuration:0.5];
-        [self.planeGeometry setValue:[NSNumber numberWithFloat:250.0f] forKey:@"amplitude"];
+        [self.planeGeometry setValue:[NSNumber numberWithFloat:120.0f] forKey:@"amplitude"];
         [SCNTransaction commit];
     }
     
@@ -122,7 +148,7 @@
 
 - (void)sendTouchesEnded{
     isTouching = false;
-    [self.planeGeometry setValue:[NSNumber numberWithFloat:curTime+1] forKey:@"animEndTime"];
+    [self.planeGeometry setValue:[NSNumber numberWithFloat:curTime+1.5f] forKey:@"animEndTime"];
 }
 
 
