@@ -4,8 +4,8 @@
   <contributor>
    <authoring_tool>SceneKit Collada Exporter v1.0</authoring_tool>
   </contributor>
-  <created>2014-12-17T16:08:05Z</created>
-  <modified>2014-12-17T16:08:05Z</modified>
+  <created>2015-01-18T22:00:49Z</created>
+  <modified>2015-01-18T22:00:49Z</modified>
   <unit meter="0.025400"/>
   <up_axis>Y_UP</up_axis>
  </asset>
@@ -33,10 +33,27 @@
   </camera>
  </library_cameras>
  <library_lights>
+  <light id="light1">
+   <technique_common>
+    <point>
+     <color>0 0 0</color>
+     <constant_attenuation>0</constant_attenuation>
+     <linear_attenuation>0</linear_attenuation>
+     <quadratic_attenuation>1</quadratic_attenuation>
+    </point>
+   </technique_common>
+   <extra>
+    <technique profile="SceneKit">
+     <attenuationStart>0</attenuationStart>
+     <attenuationEnd>1195.72</attenuationEnd>
+     <attenuationFalloffExponent>2</attenuationFalloffExponent>
+    </technique>
+   </extra>
+  </light>
   <light id="" name="">
    <technique_common>
     <point>
-     <color>0.692123 0.689401 0.694965</color>
+     <color>1 0.866319 0</color>
      <constant_attenuation>0</constant_attenuation>
      <linear_attenuation>0</linear_attenuation>
      <quadratic_attenuation>1</quadratic_attenuation>
@@ -53,7 +70,7 @@
   <light id="_ncl1_3" name="_ncl1_3">
    <technique_common>
     <point>
-     <color>0.996028 0.992199 1</color>
+     <color>0.281226 0.581416 0.922778</color>
      <constant_attenuation>0</constant_attenuation>
      <linear_attenuation>0</linear_attenuation>
      <quadratic_attenuation>1</quadratic_attenuation>
@@ -153,11 +170,11 @@
  <library_visual_scenes>
   <visual_scene id="scene6">
    <node id="Omni1" name="Omni1">
-    <matrix>1 0 0 138.9935 0 0.9342095 -0.3567249 395.4692 0 0.3567249 0.9342095 -182.8248 0 0 0 1 </matrix>
+    <matrix>1 0 0 -379.4522 0 -0.9797407 -0.2002703 590.123 0 0.2002703 -0.9797407 -614.754 0 0 0 1 </matrix>
     <instance_light url="#"/>
    </node>
    <node id="Camera001" name="Camera001">
-    <matrix>0.9970407 -0.0493211 0.05896783 0 -0.04932109 0.1779817 0.9827972 866.1417 -0.05896783 -0.9827972 0.1750225 314.9606 0 0 0 1 </matrix>
+    <matrix>0.9970407 -0.0493211 0.05896783 -4.792933 -0.04932109 0.1779817 0.9827972 786.2595 -0.05896783 -0.9827972 0.1750225 300.7347 0 0 0 1 </matrix>
     <instance_camera url="#_ncl1_1"/>
    </node>
    <node id="Plane" name="Plane">
@@ -171,13 +188,12 @@
     </instance_geometry>
    </node>
    <node id="Omni2" name="Omni2">
-    <matrix>1 0 1e-06 0 0 1 0 11.17979 -1e-06 0 1 351.6337 0 0 0 1 </matrix>
+    <matrix>1 0 1e-06 334.9018 0 1 0 571.582 -1e-06 0 1 773.1088 0 0 0 1 </matrix>
     <instance_light url="#_ncl1_3"/>
-    <extra>
-     <technique profile="SceneKit">
-      <visibility>0</visibility>
-     </technique>
-    </extra>
+   </node>
+   <node id="Dynamic_light" name="Dynamic_light">
+    <matrix>1 0 1e-06 114.0225 0 1 0 526.5761 -1e-06 0 1 -86.47223 0 0 0 1 </matrix>
+    <instance_light url="#light1"/>
    </node>
   </visual_scene>
  </library_visual_scenes>

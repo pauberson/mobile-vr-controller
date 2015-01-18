@@ -17,6 +17,7 @@
 }
 
 @property SCNGeometry *planeGeometry;
+@property SCNNode *dynamicLight;
 
 @end
 
@@ -34,6 +35,8 @@
     
     self.allowsCameraControl = NO;
     self.showsStatistics = NO;
+    
+    self.dynamicLight = [self.scene.rootNode childNodeWithName:@"Dynamic_light" recursively:NO];
     
     SCNNode *planeNode = [self.scene.rootNode childNodeWithName:@"Plane" recursively:NO];
     self.planeGeometry = planeNode.geometry;
@@ -81,6 +84,10 @@
     [self.planeGeometry setValue:[NSNumber numberWithFloat:1.0f] forKey:@"animFadeTime"];
     [self.planeGeometry setValue:[NSNumber numberWithFloat:0.0f] forKey:@"curTime"];
     
+    [SCNTransaction begin];
+    [SCNTransaction setAnimationDuration:0.5];
+    self.dynamicLight.light.color = [UIColor whiteColor];
+    [SCNTransaction commit];
 }
 
 - (void)renderer:(id<SCNSceneRenderer>)aRenderer updateAtTime:(NSTimeInterval)time {
@@ -142,6 +149,11 @@
         [self.planeGeometry setValue:[NSValue valueWithCGPoint:CGPointMake(-touchPos.z, -touchPos.x)] forKey:@"waveCentre"];
         [self.planeGeometry setValue:[NSNumber numberWithFloat:curTime] forKey:@"animStartTime"];
         
+        SCNVector3 newLightPos;
+        newLightPos.x = touchPos.x;
+        newLightPos.y = self.dynamicLight.position.y;
+        newLightPos.z = touchPos.z;
+        self.dynamicLight.position = newLightPos;
     }
 
 }
