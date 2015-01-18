@@ -18,6 +18,7 @@
     motionManager.deviceMotionUpdateInterval = 1.0 / 60.0;
     [motionManager startDeviceMotionUpdatesUsingReferenceFrame:CMAttitudeReferenceFrameXArbitraryZVertical];
     
+    application.idleTimerDisabled = YES;
     
     return YES;
 }
